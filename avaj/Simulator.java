@@ -17,7 +17,7 @@ public class Simulator {
 		try {
 			br = new BufferedReader(new FileReader(file));
 			simulationCycles = Integer.parseInt(br.readLine());
-		} catch (NumberFormatException | IOException e) {
+		} catch (NumberFormatException | IOException | NullPointerException e) {
             System.out.println("Invalid simulation");
             System.exit(0);
 		}
@@ -34,7 +34,7 @@ public class Simulator {
 
 			}
 			br.close();
-		} catch (IOException | NumberFormatException e) {
+		} catch (IOException | NumberFormatException | NullPointerException e) {
             System.out.println("Invalid simulation");
             System.exit(0);
 		}
