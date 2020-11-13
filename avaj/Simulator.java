@@ -2,8 +2,11 @@ package avaj;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintStream;
 
 public class Simulator {
 	
@@ -41,6 +44,14 @@ public class Simulator {
 	}
 	
 	public static void main(String[] args) {
+		try {
+			new File("simulation.txt").createNewFile();
+			PrintStream out = new PrintStream(new FileOutputStream("simulation.txt"));
+			System.setOut(out);
+		}
+		catch (IOException e) {
+			System.exit(0);
+		}
 		if (args.length < 1) { 
 			return;
 		}
